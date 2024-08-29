@@ -186,3 +186,4 @@ cars1 = null;
 ### JavaScript 几乎所有的事物都是对象
 
 > JavaScript 对象是变量的容器。
+
