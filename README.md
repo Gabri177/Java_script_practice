@@ -187,3 +187,77 @@ cars1 = null;
 
 > JavaScript 对象是变量的容器。
 
+### 对象定义
+
+&emsp;你可以使用字符来定义和创建 JavaScript 对象:
+
+```js
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+```
+&emsp;
+```js
+var person = {
+    firstName:"John",
+    lastName:"Doe",
+    age:50,
+    eyeColor:"blue"
+};
+```
+
+### 对象属性
+
+&emsp;可以说 "JavaScript 对象是变量的容器"。
+
+&emsp;但是，我们通常认为 "JavaScript 对象是键值对的容器"。
+
+&emsp;键值对通常写法为 name : value (键与值以冒号分割)。
+
+&emsp;键值对在 JavaScript 对象通常称为 **对象属性**。
+
+> 	JavaScript 对象是属性变量的容器
+
+### 访问对象属性
+
+```js
+person.lastName; // first way to access an attribute of an object
+person["lastName"]; //second way to access an attribute of an object
+```
+
+### 对象方法
+
+&emsp;对象的方法定义了一个函数，并作为对象的属性存储。
+
+&emsp;对象方法通过添加 () 调用 (作为一个函数)。
+
+&emsp;该实例访问了 person 对象的 fullName() 方法:
+```html
+<p id="demo"></p>
+<script>
+var person = {
+    firstName: "John",
+    lastName : "Doe",
+    id : 5566,
+    fullName : function() {
+       return this.firstName + " " + this.lastName;
+    }
+};
+document.getElementById("demo").innerHTML = person.fullName();
+```
+
+> 	JavaScript 对象是属性和方法的容器。
+
+### 访问对象方法
+
+&emsp;可以使用以下语法创建对象方法：
+```js
+methodName : function() {
+    // 代码 
+}
+```
+
+&emsp;可以使用以下语法访问对象方法：
+```js
+objectName.methodName()
+```
+
+## JavaScript 函数
