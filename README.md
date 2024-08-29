@@ -138,9 +138,15 @@ var cars1 = new Array();
 cars1[0] = "element1";
 cars1[1] = "element2";
 cars1[2] = "element3";
-
 var cars2 = ["element1", "element2", "element3"];
-
 var cars3 = new Array("element1", "element2", "element3");
-
-
+//object
+var person={firstname:"John", lastname:"Doe", id:5566};
+var person2 = {
+        firstname : "John",
+        lastname  : "Doe",
+        id        :  5566
+};
+cars1 = null;
+```
+### 
