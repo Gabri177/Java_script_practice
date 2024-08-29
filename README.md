@@ -379,7 +379,7 @@ var var1 = 1; // 不可配置全局属性
 var2 = 2; // 没有使用 var 声明，可配置全局属性
 
 console.log(this.var1); // 1
-console.log(window.var1); // 1  why this works
+console.log(window.var1); // 1 所有数据变量都属于 window 对象。
 console.log(window.var2); // 2
 
 delete var1; // false 无法删除
@@ -420,9 +420,56 @@ function myFunction() {
 
 ### JavaScript 全局变量
 
+&emsp;变量在函数外定义，即为全局变量。
+
+&emsp;全局变量有 全局作用域: 网页中所有脚本和函数均可使用
 
 
+```js
+var carName = " Volvo";
+// 此处可调用 carName 变量
+function myFunction() {
+    // 函数内可调用 carName 变量
+}
+```
+<strong style="border:solid; border-color:gray; color:rgb(230, 230, 250); background-color:rgb(72, 90, 205);">如果变量在函数内没有声明（没有使用 var 关键字），该变量为全局变量。以下实例中 carName 在函数内，但是为<em style="color:yellow">全局变量</em>。</strong>
+
+```js
+// 此处可调用 carName 变量
+function myFunction() {
+    carName = "Volvo";
+    // 此处可调用 carName 变量
+}
+```
+
+### JavaScript 变量生命周期
+
+&emsp;JavaScript 变量生命周期在它声明时初始化。
+
+&emsp;局部变量在函数执行完毕后销毁。
+
+&emsp;全局变量在页面关闭后销毁。
+
+### ⌊函数参数
+
+&emsp;函数参数只在函数内起作用，是局部变量。
+
+### HTML 中的全局变量
+
+&emsp;在 HTML 中, `全局变量是 window 对象`，所以 window 对象可以调用函数内的未声明（未加 var)的局部变量。
+
+&emsp;**注意：** 所有数据变量都属于 `window` 对象。
+
+> 	你的全局变量，或者函数，可以覆盖 window 对象的变量或者函数。
+局部变量，包括 window 对象可以覆盖全局变量和函数。
 
 
+&emsp;在 JavaScript 中，函数内部的局部变量通常不可以直接被外部作用域访问，但有几种方式可以将函数内的局部变量暴露给外部作用域，具体如下：
 
+* 通过全局对象：在函数内部，可以通过将局部变量赋值给 window 对象的属性来使其成为全局可访问的。例如，使用 window.a = a; 语句，可以在函数外部通过 window.a 访问到这个局部变量的值。
+* 定义全局变量：在函数内部不使用 var、let 或 const 等关键字声明变量时，该变量会被视为全局变量，从而可以在函数外部访问。但这种做法通常不推荐，因为它可能导致意外的副作用和代码难以维护。
+* 返回值：可以通过在函数内部使用 return 语句返回局部变量的值，然后在函数外部接收这个返回值。这样，虽然局部变量本身不会被暴露，但其值可以通过函数调用传递到外部。
+* 闭包：JavaScript 中的闭包特性允许内部函数访问外部函数的局部变量。即使外部函数执行完毕后，其局部变量仍然可以被内部函数引用。
+* 属性和方法：定义在全局作用域中的变量和函数都会变成 window 对象的属性和方法，因此可以在调用时省略 window，直接使用变量名或函数名。
 
+## JavaScript 事件
