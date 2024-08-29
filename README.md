@@ -325,3 +325,68 @@ function myFunction(var1,var2) {
 </script>
 ```
 ### 带有返回值的函数
+
+&emsp;有时，我们会希望函数将值返回调用它的地方。
+
+&emsp;通过使用 `return` 语句就可以实现。
+
+&emsp;在使用 `return` 语句时，函数会停止执行，并返回指定的值。
+
+```js
+function myFunction() {
+
+    var x=5;
+    return x;
+}
+```
+
+> 整个 JavaScript 并不会停止执行，仅仅是函数。JavaScript 将继续执行代码，从调用函数的地方。
+
+&emsp;函数调用将被返回值取代：`var myVar=myFunction();`
+
+### 局部 JavaScript 变量
+
+&emsp;在 JavaScript 函数内部声明的变量（使用 var）是**局部变量**，所以**只能在函数内部访问它**。（该变量的作用域是局部的）。
+
+&emsp;可以在不同的函数中使用名称相同的局部变量，因为只有声明过该变量的函数才能识别出该变量。
+
+&emsp;只要函数运行完毕，本地变量就会被删除。
+
+### 全局 JavaScript 变量
+
+&emsp;在函数外声明的变量是全局变量，网页上的所有脚本和函数都能访问它。
+
+###  JavaScript 变量的生存期
+
+&emsp;JavaScript 变量的生命期从它们被声明的时间开始。
+
+&emsp;局部变量会在函数运行以后被删除。
+
+&emsp;全局变量会在页面关闭后被删除
+
+### 向未声明的 JavaScript 变量分配值
+
+&emsp;<strong style="color:rgb(230, 230, 250); background-color:rgb(72, 90, 205);">如果您把值赋给尚未声明的变量，该变量将被自动作为 window 的一个属性</strong>
+
+&emsp;Example: `carname="Volvo";`
+
+&emsp;<strong style="color:rgb(230, 230, 250); background-color:rgb(72, 90, 205);">将声明 window 的一个属性 carname。</strong>
+
+&emsp;<strong style="color:rgb(230, 230, 250); background-color:rgb(72, 90, 205);">非严格模式下给未声明变量赋值创建的全局变量，是全局对象的可配置属性，可以删除。</strong>
+
+```js
+var var1 = 1; // 不可配置全局属性
+var2 = 2; // 没有使用 var 声明，可配置全局属性
+
+console.log(this.var1); // 1
+console.log(window.var1); // 1  why this works
+console.log(window.var2); // 2
+
+delete var1; // false 无法删除
+console.log(var1); //1
+
+delete var2; 
+console.log(delete var2); // true
+console.log(var2); // 已经删除 报错变量未定义
+```
+
