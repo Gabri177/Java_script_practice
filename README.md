@@ -149,4 +149,40 @@ var person2 = {
 };
 cars1 = null;
 ```
-### 
+### JavaScript 对象
+
+&emsp;**JavaScript 对象是拥有属性和方法的数据。**
+
+<table style="border:solid; background-color:white; color:black">
+    <tr style="border:solid; background-color:gray; color:white;border-color:black">
+        <td style = "border:solid; border-color:black;">对象</td>
+        <td style = "border:solid; border-color:black;">属性</td>
+        <td style = "border:solid; border-color:black;">方法</td>
+    </tr>
+    <tr>
+        <td rowspan="4" style = "border:solid; border-color:black;"><img src="./images/car.gif"></td>
+        <td style = "border:solid; border-color:black;">car.name = Flat</td>
+        <td style = "border:solid; border-color:black;">car.start()</td>
+    </tr>
+    <tr>
+        <td style = "border:solid; border-color:black;">car.model = 500</td>
+        <td style = "border:solid; border-color:black;">car.drive()</td>
+    </tr>
+    <tr>
+        <td style = "border:solid; border-color:black;">car.weight = 850kg</td>
+        <td style = "border:solid; border-color:black;">car.brake()</td>
+    </tr>
+    <tr>
+        <td style = "border:solid; border-color:black;">car.color = white</td>
+        <td style = "border:solid; border-color:black;">car.stop()</td>
+    </tr>
+</table>
+
+&emsp;所有汽车都有这些属性，但是每款车的属性都不尽相同。
+
+&emsp;所有汽车都拥有这些方法，但是它们被执行的时间都不尽相同。
+
+
+### JavaScript 几乎所有的事物都是对象
+
+> JavaScript 对象是变量的容器。
