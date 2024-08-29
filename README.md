@@ -390,3 +390,39 @@ console.log(delete var2); // true
 console.log(var2); // 已经删除 报错变量未定义
 ```
 
+## JavaScript 作用域
+
+&emsp;作用域是可访问变量的集合
+
+&emsp;在 JavaScript 中, 对象和函数同样也是变量。
+
+&emsp;在 JavaScript 中, **作用域为可访问变量，对象，函数的集合**。
+
+&emsp;JavaScript 函数作用域: **作用域在函数内修改**。
+
+### JavaScript 局部作用域
+
+&emsp;变量在函数内声明，变量为局部变量，具有局部作用域。
+
+&emsp;局部变量：只能在函数内部访问。
+
+```js
+// 此处不能调用 carName 变量
+function myFunction() {
+    var carName = "Volvo";
+    // 函数内可调用 carName 变量
+}
+```
+
+&emsp;因为局部变量只作用于函数内，所以不同的函数可以使用相同名称的变量。
+
+&emsp;局部变量在函数开始执行时创建，函数执行完后局部变量会自动销毁。
+
+### JavaScript 全局变量
+
+
+
+
+
+
+
