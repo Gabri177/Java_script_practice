@@ -7,11 +7,21 @@
     <body>
         <h1>h1 title</h1>
         <p>ppppppppppppp</p>
+        <div id="myDiv" style="background-color: black;color: white;padding: 10px;border: 2px;border-color: aquamarine;margin: 50px;border-style: solid;width: 100px; font-style:italic">
+            this is a div
+        </div>
         <script>
             a = 5;
             b = 6;
             c = a + b;
             console.log(c);
+            document.getElementById("myDiv").innerHTML=
+                "<ul>" +
+                    "<li>list1</li>" +
+                    "<li>list2</li>" +
+                "</ul>";
+            document.write("你好 \
+            世界!");
         </script>
     </body>
 </html>
