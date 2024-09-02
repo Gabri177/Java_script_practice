@@ -473,3 +473,620 @@ function myFunction() {
 * 属性和方法：定义在全局作用域中的变量和函数都会变成 window 对象的属性和方法，`因此可以在调用时省略 window，直接使用变量名或函数名。`
 
 ## JavaScript 事件
+
+### HTML事件
+
+&emsp;HTML事件是发生在HTML元素上的事情.
+
+&emsp;当在HTML页面中使用 JavaScript时, JS可以触发这些事件
+
+&emsp;HTML事件可以是浏览器的行为, 也可以是用户行为.
+
+&emsp;一下是HTML事件的实例:
+
+* HTML页面完成加载
+* HTMLinput字段改变时
+* HTML 按钮被点击
+
+&emsp;通常, 当事件发生时, 我们可以让事件触发事执行JS代码.
+
+&emsp;HTML元素中可以添加事件属性, 使用JS代码来添加HTML元素.
+
+&emsp;单引号:
+```js
+<some-HTML-element some-event='JS code'>
+```
+
+&emsp;双引号:
+```js
+<some-HTML-element some-event="JS code">
+```
+
+&emsp;当点击按钮, 改变demo标签的值为Date()的返回值:
+```js
+<button onclick="getElementById('demo').innerHTML=Date()">现在的时间是?</button>
+```
+&emsp;在这个例子中, 代码将修改自身元素的内容(使用`this`):
+```js
+<button onclick="this.innerHTML=Date()">现在的时间是?</button>
+```
+
+### 常见的HTML事件
+
+&emsp;下面是一些常见的HTML事件的列表:
+
+<table>
+    <tr>
+        <td>事件</td>
+        <td>描述</td>
+    </tr>
+    <tr>
+        <td>onchange</td>
+        <td>HTML元素改变</td>
+    </tr>
+    <tr>
+        <td>onclick</td>
+        <td>用户点击HTML元素</td>
+    </tr>
+    <tr>
+        <td>onmouseover</td>
+        <td>鼠标指针移动到指定的元素上时发生</td>
+    </tr>
+    <tr>
+        <td>onmouseout</td>
+        <td>用户从一个HTML元素上移开鼠标时发生</td>
+    </tr>
+    <tr>
+        <td>onkeydown</td>
+        <td>用户按下键盘按键</td>
+    </tr>
+    <tr>
+        <td>onload</td>
+        <td>浏览器已完成页面的加载</td>
+    </tr>
+</table>
+
+## JavaScript 字符串
+
+&emsp;JS字符串用于存储和处理文本.
+
+### 字符串长度
+
+&emsp;可以直接使用内置属性`length`来计算字符串的长度`var str="test"; var len=str.length`
+
+### 字符串可以是对象
+
+&emsp;通常, JS字符串是原始值, 可以使用字符创建: `var firstName1 = "John"`
+
+&emsp;我们也可以使用`new`关键字将字符串定义为一个对象: `var firstName2= new String("John")`
+
+> 最好不要创建 `String` 对象. 它会拖慢执行速度, 并可能产生其他副作用:<br>例如上面的两个例子, 如果我们查看`(firstName1 === firstName2)`的结果, 会发现为`false` 因为**一个字符串和一个对象不相等**
+
+> 注意: `===` 三个等号为绝对相等, 即数据类型与值必须相等
+
+### 字符串属性和方法
+
+&emsp;原始值字符串, 如"John", 没有属性和方法(因为他们不是对象).
+
+&emsp;原始值可以使用 JavaScript 的属性和方法, 因为JavaScript在执行方法和属性时可以把原始值当做对象.
+
+### 字符串属性
+
+&emsp; constructor => 返回创建字符串属性的函数
+
+&emsp; length => 返回字符串的长度
+
+&emsp; prototype => 允许我们向对象添加属性和方法
+
+### 字符串方法
+
+&emsp; charAt() => 返回指定索引位置的字符
+
+&emsp; charCodeAt() => 返回指定索引位置字符的 Unicode 值
+
+&emsp; concat() => 连接两个或多个字符串, 返回连接后的字符串
+
+&emsp; fromCharCode() => 将 Unicode 转换为字符串
+
+&emsp; indexOf() => 返回字符串中检索指定字符第一次出现的位置
+
+&emsp; lastindexOf() => 同上
+
+&emsp; localCompare() => 用本地特定的顺序来比较两个字符串
+
+&emsp; match() => 找到一个或多个正则表达式的匹配
+
+&emsp; replace() => 替换与正则表达式匹配的字符串
+
+&emsp; search() => 检索与正则表达式相匹配的值
+
+&emsp; slice() => 提取字符串的片段, 并在新的字符串中返回被提取的部分
+
+&emsp; split() => 把字符串分割为字符串数组
+
+&emsp; substr() => 从起始索引号提取字符串中指定数目的字符
+
+&emsp; substring() => 提取字符串中两个指定的索引号之间的字符
+
+&emsp; toLocaleLowerCase()
+
+&emsp; toLocaleUpperCase()
+
+&emsp; toLowerCase() => 把字符串转换为小写
+
+&emsp; toString() => 返回字符串对象值
+
+&emsp; toUpperCase() => 把字符串转换为大写
+
+&emsp; trim() => 移除字符串首位空白
+
+&emsp; valueOf() => 返回某个字符串对象的原始值
+
+## JavaScript 模板字符串
+
+&emsp;JavaScript 中的模板字符串是一种方便的字符串语法, 允许我们在字符串中嵌入表达式和变量. 
+
+&emsp;模板字符串使用**反引号**作为字符串的定界符分隔字面量
+
+&emsp;允许多行字符串, 带嵌入表达式的字符串插值和一种叫带标签的模板的特殊结构
+
+```js
+`string text`  //普通的模板字符串
+
+`string text line 1
+ string text line 2` //多行模板字符串
+
+`string text ${expression} string text` //带嵌入表达式的字符串
+
+tagFunction`string text ${expression} string text`  //带标签的模板字符串
+```
+
+* string text：将成为模板字面量的一部分的字符串文本。几乎允许所有字符，包括换行符和其他空白字符。但是，除非使用了标签函数，否则无效的转义序列将导致语法错误。
+* expression：要插入当前位置的表达式，其值被转换为字符串或传递给 tagFunction。
+* tagFunction：如果指定，将使用模板字符串数组和替换表达式调用它，返回值将成为模板字面量的值。
+
+> 模板字符串中可以同时使用单引号和双引号<br>模板字符串还支持多行文本, 而不需要特殊的转义字符.
+
+## JavaScript 运算符
+
+&emsp;**同 C 和 C++**
+
+## JavaScript 比较 和 逻辑运算符
+
+&emsp;`===` => 绝对等于(值和类型均相等)
+
+&emsp;`!==` => 绝对不等于(值和类型有一个不相等, 或者两个都不相等)
+
+> 其余同 C 和 C++
+
+## JavaScript if...Else 语句
+
+&emsp;**同 C 和 C++**
+
+
+## JavaScript switch 语句
+
+&emsp;**同 C 和 C++**
+
+## JavaScript 循环
+
+&emsp;**For/In循环**:
+
+```js
+var txt = "";
+var person={fname:"Bill",lname:"Gates",age:56}; 
+ 
+for (x in person) {  // x 为属性名 
+    txt=txt + person[x];
+}
+```
+
+### JavaScript 标签
+
+&emsp;如同 switch 语句, 我们可以对 JavaScript 语句进行标记
+
+> 这种标签的方式和 **C语言** 大体相同, 但是要加花括号
+
+&emsp;1. 默认标签的情况（除了默认标签情况，其他时候必须要有名标签，否则会有惊喜）
+当 break 和 continue 同时用于循环时，没有加标签，此时默认标签为当前"循环"的代码块。当 break 用于 switch 时，默认标签为当前的 switch 代码块:
+
+```js
+cars=["BMW","Volvo","Saab","Ford"];
+list:
+{
+    document.write(cars[0] + "");
+    document.write(cars[1] + "");
+    document.write(cars[2] + "");
+    break list;
+    document.write(cars[3] + "");
+    document.write(cars[4] + "");
+    document.write(cars[5] + "");
+}
+```
+
+> 有了标签，可以使用break和continue在多层循环的时候控制外层循环。
+
+```js
+outerloop:
+for (var i = 0; i < 10; i++)
+{
+    innerloop:
+    for (var j = 0; j < 10; j++)
+    {
+        if (j > 3)
+        {
+            break;
+        }
+        if (i == 2)
+        {
+            break innerloop;
+        }
+        if (i == 4)
+        {
+            break outerloop;
+        }
+        document.write("i=" + i + " j=" + j + "");
+    }
+}
+```
+
+## JavaScript typeof, null, 和 undefined
+
+### typeof 操作符
+
+```js
+typeof "John"                // 返回 string 
+typeof 3.14                  // 返回 number
+typeof false                 // 返回 boolean
+typeof [1,2,3,4]             // 返回 object
+typeof {name:'John', age:34} // 返回 object
+```
+> 在JavaScript中, 数组是一种特殊的对象类型. 因此上面的那个数组返回 object
+
+### null
+
+&emsp;在JavaScript中, null是一个只有一个值的特殊类型. 表示`一个空对象的引用`
+
+> 我们可以通过 `console.log(typeof null)` 来查看null的类型
+
+&emsp;我们可以通过设置`undefined`来清空对象
+
+> `var person = undefined` 这种情况下, 值为`undefined`, 类型为`undefined`
+
+### undefined 和 null 的区别
+
+&emsp;**null 和 undefined 的值相等, 但类型不等**
+
+```js
+typeof undefined             // undefined
+typeof null                  // object
+null === undefined           // false
+null == undefined            // true
+```
+
+1. 定义:
+    (1). undefined: 是所有没有赋值变量的默认值, 自动赋值
+    (2). null: 主动释放一个变量引用的对象, 表示一个变量不再指向任何对象地址
+2. 什么时候应该使用 **null**
+    * 当使用完一个比较大的对象时, 需要对其进行释放内存时间, 设置为null
+3. null 与 undefined 的异同点
+    * 共同点: 都是原始类型, 保存在栈中
+    * 不同点:<br>
+        &emsp;1> undefined 表示变量声明过, 但是并未赋值. **它是所有未赋值变量的默认值**<br>
+        &emsp;2> null 表示一个变量将来可能指向一个对象. **一般用于主动释放指向对象的引用** 
+
+
+## JavaScript 类型换换
+
+### JavaScript 数据类型
+
+&emsp;在 JavaScript 中有六种不容的数据类型:
+
+* string
+* number
+* bollean
+* object
+* function
+* symbol
+
+&emsp;有三种对象类型:
+
+* Object
+* Date
+* Array
+
+&emsp;不包含任何值的数据类型:
+
+* null
+* undefined
+
+### typeof 操作符
+
+```js
+typeof "John"                 // 返回 string 
+typeof 3.14                   // 返回 number
+typeof NaN                    // 返回 number
+typeof false                  // 返回 boolean
+typeof [1,2,3,4]              // 返回 object
+typeof {name:'John', age:34}  // 返回 object
+typeof new Date()             // 返回 object
+typeof function () {}         // 返回 function
+typeof myCar                  // 返回 undefined (如果 myCar 没有声明)
+typeof null                   // 返回 object
+```
+
+&emsp;**注意:**
+
+* NaN 的数据类型是 number
+* 数组 (Array) 的数据类型是 object
+* 日期 (Date) 的数据类型是 object
+* null 的数据类型是 object
+* 未定义变量的数据类型为 undefined
+
+### constructor 属性
+
+&emsp;`constructor`属性返回所有 JavaScript 变量的构造函数
+```js
+"John".constructor                 
+// 返回函数 String()  { [native code] }
+(3.14).constructor                 
+// 返回函数 Number()  { [native code] }
+false.constructor                 
+// 返回函数 Boolean() { [native code] }
+[1,2,3,4].constructor             
+// 返回函数 Array()   { [native code] }
+{name:'John', age:34}.constructor 
+// 返回函数 Object()  { [native code] }
+	new Date().constructor            
+// 返回函数 Date()    { [native code] }
+function () {}.constructor        
+// 返回函数 Function(){ [native code] }
+```
+
+&emsp;例如, 我们也可以用这个函数来查看对象是否为数组, 同理也可以查看是否为日期(包含字符串"Date")
+
+```js
+function isArray(myArray) {
+    return myArray.constructor.toString().indexOf("Array") > -1;
+}
+```
+
+### JavaScript 类型转换
+
+&emsp; JavaScript 变量可以转换为新变量或其他数据类型:
+
+* 通过使用 JavaScript 函数
+* 通过 JavaScript 自身自动转换
+
+### 将数字转换为字符串
+
+&emsp;全局方法`String()`可以将数字转换为字符串
+
+&emsp;该方法可以用于任何类型的数字, 字母, 变量, 表达式:
+
+```js
+String(x)         // 将变量 x 转换为字符串并返回
+String(123)       // 将数字 123 转换为字符串并返回
+String(100 + 23)  // 将数字表达式转换为字符串并返回
+```
+
+&emsp;Number方法`toString()`也有同样的效果:
+```js
+x.toString()
+(123).toString()
+(100 + 23).toString()
+```
+* toExponential() => 把对象的值转换为指数计数法
+* toFixed() => 把数字转换为字符串, 结果的小数点后有指定位数的数字
+* toPrecision => 把数字格式化为指定的长度
+
+### 将布尔值转换为字符串
+
+&emsp;全局方法`String()`
+
+```js
+String(false) //返回"false"
+String(true)  //返回"true"
+false.toString()
+true.toString()
+```
+
+### 将日期转换为字符串
+
+&emsp;可以直接用`Date()`方法, 该函数直接返回字符串
+
+&emsp;全局方法`String()`可以将日期对象转换为字符串
+
+```js
+String(new Date())
+```
+
+&emsp;Date方法`toString()`也有同样的效果
+```js
+obj = new Date()
+obj.toString()
+```
+### 将字符串转换为数字
+
+&emsp;全局方法 `Number()` 可以将字符串转换为数字.
+
+&emsp;空字符串会被转换为 0
+
+&emsp;其他字符串会转换为 `NaN`
+
+```js
+Number("3.14")    // 返回 3.14
+Number(" ")       // 返回 0 
+Number("")        	// 返回 0
+Number("99 88")   // 返回 NaN
+```
+
+### 一元运算符 "+"
+
+&emsp; `+` 可用于将变量转换为数字
+
+```js
+var y = "3";
+var x = +y;
+```
+> 注意上面不是`+=` 而是 `=+`<br>此外, y的类型是 String, 而x的类型是 Number
+
+&emsp;如果变量无法转换, 结果仍为数字(类型), 值为NaN(不是数字)
+
+```js
+var y = "jajaja"
+var x = +y;
+```
+### 将布尔值转换为数字
+
+&emsp;全局方法`Number()`可将布尔值转换为数字
+
+```js
+Number(true); //返回 1
+NUmber(false);//返回 0
+```
+### 将日期转换为数字
+&emsp;全局方法 `Number()` 可将日期转换为数字.
+```js
+d = new Date();
+Number(d);
+```
+&emsp;日期方法 `getTime()` 也有同样的效果
+
+```js
+d = new Date();
+d.getTime();
+```
+### 自动转换类型
+
+&emsp;当 JavaScript 尝试操作一个"错误"的数据类型时, 会自动转换为"正确"的数据类型
+
+```js
+5 + null    // 返回 5         null 转换为 0
+"5" + null  // 返回"5null"    null 转换为 "null"
+"5" + 1     // 返回 "51"      1 转换为 "1"  
+"5" - 1     // 返回 4         "5" 转换为 5
+ ```
+ 
+### 自动转换为字符串
+
+&emsp;当你尝试输出一个对象或一个变量时 JavaScript 会自动调用变量的 toString() 方法:
+
+```js
+document.getElementById("demo").innerHTML = myVar;
+
+`
+myVar = {name:"Fjohn"}  // toString 转换为 "[object Object]"
+myVar = [1,2,3,4]       // toString 转换为 "1,2,3,4"
+myVar = new Date()      // toString 转换为 "Fri Jul 18 2014 09:08:55 GMT+0200"
+myVar = 123             // toString 转换为 "123"
+myVar = true            // toString 转换为 "true"
+myVar = false           // toString 转换为 "false"
+`
+```
+
+## JavaScript 正则表达式
+
+### 语法
+
+```js
+/正则表达式主体/修饰符(可选)
+```
+
+例如:
+```js
+var patt = /test/i;
+```
+&emsp;其中:
+
+* `/test/i` 是一个正则表达式
+* `test` 是一个`正则表达式主体`(用于检索)
+* `i`是一个**修饰符**(搜索不区分大小写)
+
+&emsp;在 JavaScript 中，正则表达式通常用于两个字符串方法 : search() 和 replace()。
+
+## JavaScript 错误 - throw, try 和 catch
+
+* `try`, `catch`, `throw` 语句的使用方法和在c++中很相似
+* `finally` 语句在 `try`和`catch`语句之后, 无论是否触发异常, 该语句都会被执行
+
+### JavaScript try 和 catch
+
+```js
+try {
+    ...    //异常的抛出
+} catch(e) {
+    ...    //异常的捕获与处理
+} finally {
+    ...    //结束处理
+}
+```
+## JavaScript 声明提升
+
+&emsp; JavaScript中, 函数以及变量的声明都将被提升到函数的最顶部
+
+&emsp; JavaScript中, 变量可以在使用后声明, 也就是变量可以先使用再声明
+
+```js
+x = 5; // 变量 x 设置为 5
+
+elem = document.getElementById("demo"); // 查找元素 
+elem.innerHTML = x;                     // 在元素中显示 xvar x; // 声明 x
+```
+
+```js
+var x; // 声明 x
+x = 5; // 变量 x 设置为 5
+elem = document.getElementById("demo"); // 查找元素 
+elem.innerHTML = x;                     // 在元素中显示 x
+```
+
+> 声明提升(hoisting): 函数声明和变量声明总是会被解释器悄悄地"提升"到方法体的最顶部
+
+### JavaScript 初始化不会提升
+
+&emsp;JavaScript 初始化不会提升, JavaScript 只有声明变量部分会提升, 初始化部分不会. 
+
+### 在头部声明变量
+
+&emsp;如果不能很好的理解声明提升, 程序就容易出现一些问题
+
+&emsp;为了避免这些问题, 通常我们在每个作用域开始前声明这些变量, 这也是正常的JavaScript解析步骤, 易于我们的理解 
+
+> JavaScript 严格模式(strict mode)不允许使用未声明的变量
+
+## JavaScript 严格模式(use strict)
+
+### 严格模式声明
+&emsp;严格模式通过在脚本或函数的头部添加`use strict`表达式来声明
+
+```js
+"use strict";
+x = 3.14;       // 报错 (x 未定义)
+```
+&emsp;注意: 在函数内部声明是局部作用域(只在函数内部使用严格模式)
+
+```js
+x = 3.14;       // 不报错
+myFunction();
+
+function myFunction() {
+   "use strict";
+    y = 3.14;   // 报错 (y 未定义)
+}
+ ```
+
+&emsp;为什么使用严格模式:
+
+* 消除JavaScript语法的一些不合理, 不严谨之处, 减少一些怪异行为
+* 消除代码运行的一些不安全之处, 保证代码运行的安全
+* 提高编译器效率, 增加运行速度
+* 为未来新版本的JavaScript做好铺垫
+
+## JavaScript 表单
+
+
+
+
+
+
