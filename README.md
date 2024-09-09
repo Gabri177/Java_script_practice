@@ -1085,7 +1085,61 @@ function myFunction() {
 
 ## JavaScript 表单
 
+&emsp; HTML 表单验证可以通过JS来完成.
 
+&emsp; 下面的代码用来判断表单字段(fname)的值是否存在, 如果不存在, 就弹出信息, 阻止表单提交:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            function validateForm() {
+                var x = document.forms["myForm"]["fname"].value;
+                if (x == null || x == "") {
+                    alert("需要输入名字。");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <form name="myForm"
+            onsubmit="return validateForm()" method="post">
+            名字: <input type="text" name="fname">
+            <input type="submit" value="提交">
+        </form>
+
+    </body>
+</html>
+```
+
+### HTML表单自动验证
+
+```js
+<form action="demo_form.php" method="post">
+  <input type="text" name="fname" required="required">
+  <input type="submit" value="提交">
+</form>
+```
+
+&emsp;HTML表单验证也可以通过浏览器来自动完成.
+
+&emsp;如果表单字段(fname)的值为空, **required**属性会阻止表单提交
+
+### 数据验证
+
+&emsp;数据验证用于确保用户输入的数据是有效的
+
+&emsp;典型的数据验证有:
+
+* 必须字段是否有输入
+* 用户是否输入了合法的数据
+* 在数字字段是否输入了文本
+
+> **服务端数据验证**是在数据提交到服务器上后再验证<br>**客户端数据验证**是在数据发送到服务器钱, 在浏览器上完成验证
 
 
 
